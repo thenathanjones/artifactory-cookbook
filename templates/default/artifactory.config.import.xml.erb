@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config xmlns="http://artifactory.jfrog.org/xsd/1.5.11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.jfrog.org/xsd/artifactory-v1_5_11.xsd">
-    <serverName><%= node[:artifactory][:external_url][:host] %></serverName>
+    <% if [:artifactory][:external_url] %>
+        <serverName><%= node[:artifactory][:external_url][:host] %></serverName>
+    <% end %>
     <offlineMode>false</offlineMode>
     <fileUploadMaxSizeMb>100</fileUploadMaxSizeMb>
     <dateFormat>dd-MM-yy HH:mm:ss z</dateFormat>
