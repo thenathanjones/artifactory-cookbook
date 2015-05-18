@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config xmlns="http://artifactory.jfrog.org/xsd/1.5.11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.jfrog.org/xsd/artifactory-v1_5_11.xsd">
-    <% if [:artifactory][:external_url] %>
+    <% if node[:artifactory][:external_url][:host] %>
         <serverName><%= node[:artifactory][:external_url][:host] %></serverName>
     <% end %>
     <offlineMode>false</offlineMode>
@@ -10,7 +10,7 @@
         <showAddonsInfo>true</showAddonsInfo>
         <showAddonsInfoCookie>1431916437304</showAddonsInfoCookie>
     </addons>
-    <% if node[:artifactory][:mail] %>
+    <% if node[:artifactory][:mail][:host] %>
         <mailServer>
             <enabled>true</enabled>
             <host><%= node[:artifactory][:mail][:host] %></host>
@@ -28,7 +28,7 @@
         <passwordSettings>
             <encryptionPolicy>supported</encryptionPolicy>
         </passwordSettings>
-        <% if node[:artifactory][:ldap] %>
+        <% if node[:artifactory][:ldap][:host] %>
             <ldapSettings>
                 <ldapSetting>
                     <key>LDAP</key>
