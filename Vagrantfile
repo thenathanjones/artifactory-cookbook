@@ -29,6 +29,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.enabled = true
 
   config.vm.provision :chef_solo do |chef|
+    
+    # chef.json = {
+    #   'artifactory' => {
+    #     'external_url' => {
+    #       'host' => 'servername.com'
+    #     },
+    #     'ldap' => {
+    #       'protocol' => 'ldaps',
+    #       'host' => 'server.name.com',
+    #       'port' => '686',
+    #       'base' => 'CN=test',
+    #       'bind_dn' => 'CN=managerDN',
+    #       'bind_pass' => 'monkeypass',
+    #       'search_filter' => 'sAMAccountName'
+    #     },
+    #     'mail' => {
+    #       'host' => 'mailserver.com',
+    #       'port' => '22'
+    #     }
+    #   }
+    # }
+
     chef.json = {}
 
     chef.run_list = [

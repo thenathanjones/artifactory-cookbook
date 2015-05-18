@@ -8,11 +8,11 @@
         <showAddonsInfo>true</showAddonsInfo>
         <showAddonsInfoCookie>1431916437304</showAddonsInfoCookie>
     </addons>
-    <% if node[:mail] %>
+    <% if node[:artifactory][:mail] %>
         <mailServer>
             <enabled>true</enabled>
-            <host><%= node[:mail][:host] %></host>
-            <port><%= node[:mail][:port] %></port>
+            <host><%= node[:artifactory][:mail][:host] %></host>
+            <port><%= node[:artifactory][:mail][:port] %></port>
             <subjectPrefix>[Artifactory]</subjectPrefix>
             <tls>false</tls>
             <ssl>false</ssl>
@@ -26,18 +26,18 @@
         <passwordSettings>
             <encryptionPolicy>supported</encryptionPolicy>
         </passwordSettings>
-        <% if node[:ldap] %>
+        <% if node[:artifactory][:ldap] %>
             <ldapSettings>
                 <ldapSetting>
                     <key>LDAP</key>
                     <enabled>true</enabled>
-                    <ldapUrl><%= node[:ldap][:protocol] %>://<%= node[:ldap][:host] %>:<%= node[:ldap][:port] %></ldapUrl>
+                    <ldapUrl><%= node[:artifactory][:ldap][:protocol] %>://<%= node[:artifactory][:ldap][:host] %>:<%= node[:artifactory][:ldap][:port] %></ldapUrl>
                     <search>
-                        <searchFilter>(<%= node[:ldap][:search_filter] %>={0})</searchFilter>
-                        <searchBase><%= node[:ldap][:base] %></searchBase>
+                        <searchFilter>(<%= node[:artifactory][:ldap][:search_filter] %>={0})</searchFilter>
+                        <searchBase><%= node[:artifactory][:ldap][:base] %></searchBase>
                         <searchSubTree>true</searchSubTree>
-                        <managerDn><%= node[:ldap][:bind_dn] %></managerDn>
-                        <managerPassword><%= node[:ldap][:bind_pass] %></managerPassword>
+                        <managerDn><%= node[:artifactory][:ldap][:bind_dn] %></managerDn>
+                        <managerPassword><%= node[:artifactory][:ldap][:bind_pass] %></managerPassword>
                     </search>
                     <autoCreateUser>true</autoCreateUser>
                     <emailAttribute>mail</emailAttribute>
