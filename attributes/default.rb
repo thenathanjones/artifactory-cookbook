@@ -1,0 +1,1 @@
+default["artifactory"]["rpm_url"] = "http://bit.ly/Hqvfi9"
