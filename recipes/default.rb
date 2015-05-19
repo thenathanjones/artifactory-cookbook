@@ -24,6 +24,12 @@ end
 
 template "/var/opt/jfrog/artifactory/etc/artifactory.config.xml" do
 	source "artifactory.config.import.xml.erb"
+	mode 0666
+end
+
+template "/var/opt/jfrog/artifactory/etc/security.import.xml" do
+	source "security.import.xml.erb"
+	mode 0666
 end
 
 service 'artifactory' do
